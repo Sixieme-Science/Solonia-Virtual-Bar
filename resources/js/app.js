@@ -9,6 +9,20 @@ let position = 0;
 let draggable = false;
 let blockAnime;
 
+const forfeitAnim = {
+    targets: '.forfeit',
+    opacity: [0, 1],
+    left: [-20, 0],
+    direction: 'normal'
+};
+
+const forfeitAnimReverse = {
+    targets: '.forfeit',
+    opacity: [0, 1],
+    left: [-20, 0],
+    direction: 'reverse'
+};
+
 $(document).on('mousedown', '.stepper', function () {
     currentPos = mousePos;
 
@@ -42,9 +56,10 @@ $(document).on("mouseup", function (event) {
     }
 });
 
-
 function centerDice() {
     draggable = false;
+    anime(forfeitAnimReverse);
+
     blockAnime = anime({
         targets: '.stepper',
         duration: duration,
@@ -82,6 +97,9 @@ function plus() {
             translateY: [-100, 0],
             begin: function () {
                 $('.active').text(finalRoll);
+            },
+            complete: function () {
+                fetchForfeit(finalRoll);
             }
         }, timelineOffset);
 }
@@ -102,6 +120,9 @@ function minus() {
             translateY: [100, 0],
             begin: function () {
                 $('.active').text(finalRoll);
+            },
+            complete: function () {
+                fetchForfeit(finalRoll);
             }
         }, timelineOffset);
 }
@@ -114,3 +135,60 @@ function roll() {
 function d20() {
     return Math.floor(Math.random() * 20) + 1;
 }
+
+function drawLogo() {
+    anime.timeline()
+        .add({
+            targets: '.solonia-path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            duration: 4000,
+            easing: 'easeInOutQuint',
+            direction: 'alternate',
+            fillOpacity: [0, 1],
+            loop: false
+        })
+        .add(forfeitAnim, '-=2000');
+}
+
+function animateArrows() {
+    anime({
+        targets: '.arrow-top',
+        loop: true,
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuint',
+        top: [-120, -130],
+        direction: 'alternate'
+    });
+
+    anime({
+        targets: '.arrow-bottom',
+        loop: true,
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuint',
+        bottom: [-57, -67],
+        direction: 'alternate'
+    });
+}
+
+function fetchForfeit(roll) {
+    $.get("/api/forfeits/" + roll)
+        .done(function (data) {
+            showforfeit(data.data.description_fr);
+        })
+        .fail(function (data) {
+            showforfeit('Relancez !');
+        });
+}
+
+function showforfeit(text = null) {
+    if (text) {
+        $('.forfeit').html(text);
+    }
+
+    anime(forfeitAnim);
+}
+
+drawLogo();
+animateArrows()

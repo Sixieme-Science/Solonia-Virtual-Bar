@@ -6,8 +6,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-family: 'Ubuntu', sans-serif;
   color: #231F20;
   font-size: 20px;
   background: #FFF3F5;
@@ -44,6 +43,7 @@ body {
     width: 130px;
     height: 60px;
     text-align: center;
+    font-weight: 600;
     transform: translateY(-100);
 
     &.active {
@@ -58,6 +58,7 @@ body {
   transform: translateX(-50%);
   user-select: none;
   width: 50px;
+  fill: #FF4957;
 }
 
 .arrow-bottom {
@@ -66,4 +67,24 @@ body {
   transform: translateX(-50%);
   user-select: none;
   width: 50px;
+}
+
+.subtitle {
+  font-size: 18px;
+  position: relative;
+  top: -35px;
+  left: 340px;
+  color: #FF4957;
+  opacity: 0;
+  font-weight: bolder;
+}
+
+.forfeit {
+  position: relative;
+  color: #cc3340;
+  left:0px;
+  width: 500px;
+  font-weight: bold;
+  font-size: 18px;
+  opacity:0;
 }
