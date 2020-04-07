@@ -27,7 +27,7 @@
         </svg>
     </div>
     <div class="subtitle">Générateur de gages</div>
-    <div class="forfeit">Attrapez le dé et lancez le vers le haut ou le bas !</div>
+    <div class="forfeit">Attrape le dé et lance le vers le haut ou le bas !</div>
 </div>
 <div class="wrap">
     <div class="stepper">
