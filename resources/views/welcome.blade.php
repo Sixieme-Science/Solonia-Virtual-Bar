@@ -22,7 +22,7 @@
                   stroke="#FF4957"
                   stroke-width="1"
                   fill="#FF4957"
-                  fill-opacity="1"
+                  fill-opacity="0"
             />
         </svg>
     </div>
