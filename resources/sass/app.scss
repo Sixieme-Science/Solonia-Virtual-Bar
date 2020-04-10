@@ -1,3 +1,5 @@
+@import '_variables.scss';
+
 html, body {
   height: 100%;
 }
@@ -7,9 +9,10 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Ubuntu', sans-serif;
-  color: #231F20;
-  font-size: 20px;
-  background: #FFF3F5;
+  color: $primary;
+  font-size: 14px;
+  background: $background;
+  padding:65px;
 }
 
 .wrap {
@@ -21,7 +24,7 @@ body {
 .stepper {
   margin-top: -65px;
   margin-left: -65px;
-  background: #FF4957;
+  background: $primary;
   cursor: pointer;
   width: 130px;
   height: 130px;
@@ -32,14 +35,14 @@ body {
   color: #fff;
   font-size: 64px;
   position: relative;
-  box-shadow: -1px 57px 80px -17px rgba(255, 73, 87, 0.25);
+  box-shadow: -1px 57px 80px -17px rgba(15, 79, 73, 0.25);
   overflow: hidden;
   z-index: 2;
 
   span {
     user-select: none;
     position: absolute;
-    top: 28px;
+    top: 15px;
     width: 130px;
     height: 60px;
     text-align: center;
@@ -58,7 +61,6 @@ body {
   transform: translateX(-50%);
   user-select: none;
   width: 50px;
-  fill: #FF4957;
 }
 
 .arrow-bottom {
@@ -74,18 +76,55 @@ body {
   position: relative;
   top: -35px;
   left: 340px;
-  color: #FF4957;
+  color: $primary;
   opacity: 0;
   font-weight: bolder;
 }
 
 .forfeit {
   position: relative;
-  color: #cc3340;
-  left:0px;
+  color: $primary;
+  left:25px;
   width: 500px;
   font-weight: bold;
   font-size: 18px;
   opacity:0;
   height:50px;
+}
+
+.navigation {
+  position: absolute;
+  top:20px;
+  right:25px;
+  color: $primary;
+
+  > a {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: $primary;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn-primary:hover {
+  background-color: $dark;
+  border-color: $dark;
+}
+
+.badge-primary {
+  background-color: $dark;
+}
+
+.form-control:focus {
+  border-color: $primary;
+  box-shadow: none;
+}
+
+.form-check-input:checked, input[type=checkbox]:checked {
+  background-color: $primary;
 }

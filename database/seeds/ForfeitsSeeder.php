@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ForfeitsTableSeeder extends Seeder
+class ForfeitsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,19 @@ class ForfeitsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('forfeits')->truncate();
+
         DB::table('forfeits')->insert([
+            [
+                'score' => 2,
+                'description_fr' => 'Relancez !',
+                'description_en' => 'Roll again !',
+            ],
+            [
+                'score' => 3,
+                'description_fr' => 'Relancez !',
+                'description_en' => 'Roll again !',
+            ],
             [
                 'score' => 4,
                 'description_fr' => 'Maquille toi de façon originale et publie la photo.',
@@ -187,6 +199,16 @@ class ForfeitsTableSeeder extends Seeder
                 'score' => 38,
                 'description_fr' => 'Effort communautaire : répare, nettoie ou entretien quelque chose dans ton immeuble ou un espace publique non loin.',
                 'description_en' => 'Communal effort: repair, clean or maintain something in your building or a public place around.',
+            ],
+            [
+                'score' => 39,
+                'description_fr' => 'Relancez !',
+                'description_en' => 'Roll again !',
+            ],
+            [
+                'score' => 40,
+                'description_fr' => 'Relancez !',
+                'description_en' => 'Roll again !',
             ],
         ]);
     }

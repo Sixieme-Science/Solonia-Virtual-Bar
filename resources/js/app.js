@@ -12,16 +12,23 @@ let blockAnime;
 const forfeitAnim = {
     targets: '.forfeit',
     opacity: [0, 1],
-    left: [-20, 0],
+    left: [0, 25],
     direction: 'normal'
 };
 
 const forfeitAnimReverse = {
     targets: '.forfeit',
     opacity: [0, 1],
-    left: [-20, 0],
+    left: [0, 25],
     direction: 'reverse'
 };
+
+$('form input').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
 
 $(document).on('mousedown', '.stepper', function () {
     currentPos = mousePos;
@@ -54,6 +61,14 @@ $(document).on("mouseup", function (event) {
     if (draggable) {
         centerDice();
     }
+});
+
+$('.arrow-top').click(function (event) {
+    plus();
+});
+
+$('.arrow-bottom').click("press", function (event) {
+    minus();
 });
 
 function centerDice() {
@@ -129,11 +144,16 @@ function minus() {
 
 
 function roll() {
-    return d20() + d20();
+    // return d20() + d20();
+    return d40();
 }
 
 function d20() {
     return Math.floor(Math.random() * 20) + 1;
+}
+
+function d40() {
+    return Math.floor(Math.random() * 40) + 1;
 }
 
 function drawLogo() {

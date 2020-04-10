@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('roll');
 });
+
+Route::get('/backstage', 'BackstageController@backstage')
+    ->middleware('auth');
+
+Route::post('/backstage', 'BackstageController@store')
+    ->middleware('auth');
+
+Auth::routes();
