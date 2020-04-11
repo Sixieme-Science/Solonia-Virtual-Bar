@@ -87,7 +87,7 @@ class ForfeitsSeeder extends Seeder
             ],
             [
                 'score' => 16,
-                'description_fr' => 'Fais ta meilleure immitation du coronavirus.',
+                'description_fr' => 'Trouve et porte un chapeau ou un accessoire de costume.',
                 'description_en' => 'Open you window and dance like crazy in front of your neighbours',
             ],
             [
