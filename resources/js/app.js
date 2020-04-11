@@ -198,7 +198,7 @@ function fetchForfeit(roll) {
             showforfeit(data.data.description_fr);
         })
         .fail(function (data) {
-            showforfeit('Relancez !');
+            showforfeit('Relance !');
         });
 }
 
